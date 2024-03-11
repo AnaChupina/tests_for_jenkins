@@ -1,93 +1,83 @@
 # Module 15. Java Core. Part 3
+## Home Task Solution
 
+This repository contains my solution to the Java Stream practice homework. 
+The tasks were designed to reinforce understanding and proficiency in using Java 8+ features, particularly streams, and functional programming concepts.
 
+# Tasks Overview
 
-## Getting started
+## Task 1: Generating Random Numbers with Streams
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
+- [ ] Show in console
 ```
-cd existing_repo
-git remote add origin https://gitlab.griddynamics.net/achupina/module-15-java-core-part-3.git
-git branch -M main
-git push -uf origin main
+    Stream<Integer> stream = Stream.of(1,2,3,4,5,6,7,8,9);
+```
+- [ ] Create a list of random numbers using Stream.generate() , should have 20 items and print in console
+- [ ] Collect Stream elements to a List:  Convert list elements to stream, select only even ones, use the collect method to collect them into a List:
+
+## Task 2: Filtering and Manipulating Lists
+```
+    List<Integer> list = new ArrayList<Integer>();
+    for(int i = 1, i < 10; i++){
+    list.add(i)
+    }
+```
+- [ ] Repeat the same as in task 3 but collect all the elements in Array [];
+- [ ] filter values, keep those that start with "c", convert all values, convert to uppercase, sort in Descending order
+```
+    List<String> myList = Arrays.asList("a1", "a2", "b1", "c2", "c1");
 ```
 
-## Integrate with your tools
+## Task 3: Filtering and Sorting Names
+- [ ] a) Display names that start with ‘A’ and have length > 5;
+  b) Sort all names and display them in lower case on the screen
+```
+    List<String> memberNames = new ArrayList<>();
+    memberNames.add("Amitabh");
+    memberNames.add("Shekhar");
+    memberNames.add("Aman");
+    memberNames.add("Rahul");
+    memberNames.add("Shahrukh");
+    memberNames.add("Abibaba");
+    memberNames.add("Salman");
+    memberNames.add("Yana");
+    memberNames.add("Lokesh");'
+```
+- [ ] Stream.match() - Various matching operations can be used to check whether a given predicate matches the stream elements. Match returns a boolean result.
+  From task 6, take an array and check with allMatch or anyMatch whether the list contains names with the letter ‘S’ (allMatch should display false, anyMatch should display true)
+  From task 6, take an array and check with noneMatch whether the list contains names with the letter ‘H’ (should display true)
+- [ ] Stream.count() - The count() is a terminal operation returning the number of elements in the stream as a long value.
+- [ ] From task 6 count the number of names starting with “A” - display their number.
+- [ ] Stream.findFirst() - take the array from task 6 and print the first name starting with ‘L’
 
-- [ ] [Set up project integrations](https://gitlab.griddynamics.net/achupina/module-15-java-core-part-3/-/settings/integrations)
+## Task 4: Java Stream Operations
+- [ ] Java Stream flatMap() - concatenate 3 arrays into one using flatMap ()
+```
+    List<Integer> list1 = Arrays.asList(1,2,3);
+    List<Integer> list2 = Arrays.asList(4,5,6);
+    List<Integer> list3 = Arrays.asList(7,8,9);
+```
+- [ ] And these are also combined into 1
+```
+    String[][] dataArray = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}, {"g", "h"}};
+```
+- [ ] Stream.distinct() to remove duplicates - remove duplicates from this array and display.
+```
+    ArrayList<Integer> numbersList = new ArrayList<>(Arrays.asList(1, 1, 2, 3, 3, 3, 4, 5, 6, 6, 6, 7));
+```
+- [ ] (OPTIONAL, NOT MANDATORY) Collectors.toMap() - move the list into Map where the key is an element of the array and the value is the number of times the element occurs in the array
+```
+    ArrayList<Integer> numbersList = new ArrayList<>(Arrays.asList(1, 1, 2, 3, 3, 3, 4, 5, 6, 6, 6, 7));
+```
 
-## Collaborate with your team
+## Task 5: Manipulating Map Values
+- [ ] Write to a new list only letters that occur in the values of this map
+```
+    Map<String, List<String>> people = new HashMap<>();
+    people.put("John", Arrays.asList("555-1123","s", "555-3389", "a"));
+    people.put("Mary", Arrays.asList("555-2243","z", "555-5264"));
+    people.put("Steve", Arrays.asList("555-6654", "555-3242", "d"));
+```
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Contact Information
+For any questions or clarifications regarding the solution, feel free to reach out to me via email (achupina@griddynamics.com) or Slack.
