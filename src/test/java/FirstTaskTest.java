@@ -18,12 +18,10 @@ public class FirstTaskTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
     private static final String EXPECTED_OUTPUT_FOR_FIRST_TEST = "1\n2\n3\n4\n5\n6\n7\n8\n9";
+    private static final String WRONG_EXPECTED_OUTPUT_FOR_FIRST_TEST = "1\n2\n3\n4\n5\n6";
     private static final int AMOUNT_OF_NUMBERS_FOR_SECOND_TEST = 20;
     private static final String EXPECTED_OUTPUT_FOR_THIRD_TEST = "2\n4\n6\n8";
 
-
-//    @Rule
-//    public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 
     @BeforeEach
     public void setUpStreams() {
@@ -34,8 +32,7 @@ public class FirstTaskTest {
     @DisplayName("First Test - testing showStreamOfIntegersInConsole method")
     public void testShowStreamOfIntegersInConsoleDisplaysCorrectly(){
         firstTask.showStreamOfIntegersInConsole(stream);
-        //assertEquals(EXPECTED_OUTPUT_FOR_FIRST_TEST, systemOutRule.getLog().trim());
-        assertEquals(EXPECTED_OUTPUT_FOR_FIRST_TEST, outContent.toString().trim());
+        assertEquals(WRONG_EXPECTED_OUTPUT_FOR_FIRST_TEST, outContent.toString().trim());
     }
     @Test
     @DisplayName("Second Test - testing createListOfRandomNumbers method")
@@ -44,8 +41,6 @@ public class FirstTaskTest {
         assertEquals(20, listOfRandomNumbers.size());
 
         firstTask.showStreamOfIntegersInConsole(listOfRandomNumbers.stream());
-
-        //assertEquals(EXPECTED_OUTPUT, outContent.toString().trim());
     }
     @Test
     @DisplayName("Third Test - testing collectOnlyEvenNumbers method")
