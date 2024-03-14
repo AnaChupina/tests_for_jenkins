@@ -1,3 +1,5 @@
+import io.qameta.allure.Step;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.stream.Collectors;
  *    people.put("Steve", Arrays.asList("555-6654", "555-3242", "d"));
  */
 public class FifthTask {
-
+    @Step
     public Map<String, List<String>> generateTestData(){
         Map<String, List<String>> people = new HashMap<>();
         people.put("John", Arrays.asList("555-1123","s", "555-3389", "a"));
@@ -23,7 +25,7 @@ public class FifthTask {
 
         return people;
     }
-
+    @Step
     public List<String> getLettersFromValuesOfMap(Map<String, List<String>> inputMap){
         return inputMap.values().stream().flatMap(List::stream)
                 .filter(s -> s.matches("[a-zA-Z]"))

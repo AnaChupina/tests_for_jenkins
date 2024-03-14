@@ -1,3 +1,5 @@
+import io.qameta.allure.Step;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -26,41 +28,42 @@ import java.util.stream.Stream;
  * Please provide @mkuznietsov (Slack) with your solution.
  */
 public class FourthTask {
+    @Step
     @SafeVarargs
     public final <T>ArrayList<T> concatenateArraysIntoOne(List<T>... lists){
         return Stream.of(lists)
                 .flatMap(Collection::stream)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+    @Step
     public ArrayList<String> concatenateStringArraysIntoOne(String[][] dataArray){
         return concatenateArraysIntoOne(Stream.of(dataArray)
                 .map(List::of)
                 .toArray(List[]::new));
     }
-
+    @Step
     public ArrayList<Integer> removeDuplicatesFromArrayList (List<Integer> numbersList){
         return numbersList.stream()
                 .distinct()
                 .collect(Collectors
                 .toCollection(ArrayList::new));
     }
-
+    @Step
     public void displayList(List<Integer> numbersList){
         numbersList.forEach(System.out::println);
     }
+    @Step
     public Map<Integer, Long> countHowManyTimesEachDigitOccursGroupingBy (ArrayList<Integer> numbersList){
         return numbersList.stream()
                 .collect(Collectors.groupingBy(i -> i, Collectors.counting()));
     }
-
+    @Step
     public Map<Integer, Integer> countHowManyTimesEachDigitOccurs (ArrayList<Integer> numbersList){
         return numbersList.stream()
                 .collect(Collectors.toMap(i -> i, i -> 1, Integer::sum));
     }
-
+    @Step
     public <T, N> void displayMap(Map<T, N> map){
         map.forEach((k,v) -> System.out.println("The number " + k + " occurs " + v + " times"));
     }
-
-
 }

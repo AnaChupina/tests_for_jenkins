@@ -1,4 +1,6 @@
 
+import io.qameta.allure.Step;
+
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -13,17 +15,18 @@ import java.util.stream.Stream;
  * Collect Stream elements to a List:  Convert list elements to stream, select only even ones, use the collect method to collect them into a List:
  */
 public class FirstTask {
+    @Step
     public void showStreamOfIntegersInConsole(Stream<Integer> stream ){
         stream.forEach(System.out::println);
     }
-
+    @Step
     public List<Integer> createListOfRandomNumbers(int amountOfNumbers){
         return Stream
                 .generate(new Random() :: nextInt)
                 .limit(amountOfNumbers)
                 .collect(Collectors.toList());
     }
-
+    @Step
     public List<Integer> collectOnlyEvenNumbers (List<Integer> inputList){
         return inputList.stream()
                 .filter(x -> (x%2==0))

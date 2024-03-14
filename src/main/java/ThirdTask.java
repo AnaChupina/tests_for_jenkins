@@ -1,8 +1,11 @@
+import io.qameta.allure.Step;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * Task 3:
@@ -28,6 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * 10. Stream.findFirst() - take the array from task 6 and print the first name starting with ‘L’
  */
 public class ThirdTask {
+    @Step
     public List<String> generateTestData(){
         List<String> memberNames = new ArrayList<>();
         memberNames.add("Amitabh");
@@ -41,21 +45,24 @@ public class ThirdTask {
         memberNames.add("Lokesh");
         return memberNames;
     }
-
+    @Step
     public void displayNamesStartedWithAndHaveLengthMoreThan(List<String> list, String startPrefix, int requiredLength){
         list.stream()
                 .filter(s -> s.startsWith(startPrefix) &&  s.length() > requiredLength)
                 .forEach(System.out::println);
     }
+    @Step
     public void displayStringsSortedAndInLowerCase (List<String> list){
         list.stream().sorted()
                 .map(String::toLowerCase)
                 .forEach(System.out::println);
     }
+    @Step
     public boolean checkIfListContainsNamesWithLetterSUsingAllMatch (List<String> list){
         return list.stream()
                 .allMatch(s -> s.contains("S"));
     }
+    @Step
     public boolean checkIfListContainsNamesWithLetterSUsingAnyMatch (List<String> list){
         return list.stream()
                 .anyMatch(s -> s.contains("S"));
@@ -64,11 +71,13 @@ public class ThirdTask {
         return list.stream()
                 .noneMatch(s -> s.contains("H"));
     }
+    @Step
     public long countNamesStartedWith(List<String> list, String startPrefix){
         return list.stream()
                 .filter(s -> s.startsWith(startPrefix))
                 .count();
     }
+    @Step
     public void printFirstNameStartedWith(List<String> list, String startPrefix){
         Optional<String> result = list.stream()
                 .filter(s -> s.startsWith(startPrefix))
@@ -76,5 +85,4 @@ public class ThirdTask {
         assertTrue(result.isPresent());
         System.out.println(result.get());
     }
-
 }

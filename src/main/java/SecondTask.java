@@ -1,3 +1,5 @@
+import io.qameta.allure.Step;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -14,14 +16,14 @@ import java.util.stream.Collectors;
  *  List<String> myList = Arrays.asList("a1", "a2", "b1", "c2", "c1");
  */
 public class SecondTask {
-
+    @Step
     public int[] collectOnlyEvenNumbersInArrayOfInt (List<Integer> inputList){
         return inputList.stream()
                 .filter(x -> (x % 2 == 0))
                 .mapToInt(x -> x)
                 .toArray();
     }
-
+    @Step
     public List<Integer> generateIntegerTestData(){
         List<Integer> list = new ArrayList<>();
         for(int i = 1; i < 10; i++){
@@ -29,10 +31,11 @@ public class SecondTask {
         }
         return list;
     }
+    @Step
     public List<String> generateStringTestData(){
         return Arrays.asList("a1", "a2", "b1", "c2", "c1");
     }
-
+    @Step
     public List<String> filterStringsConvertToUppercaseSortInDescendingOrder(List<String> list){
         return list.stream()
                 .filter(s -> s.startsWith("c"))
